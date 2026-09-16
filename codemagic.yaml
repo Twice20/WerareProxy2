@@ -1,0 +1,12 @@
+workflows:
+  android-debug:
+    name: WerareProxy Android Debug
+    environment:
+      java: 17
+    scripts:
+      - name: Build APK
+        script: |
+          chmod +x gradlew || true
+          gradle --no-daemon :app:assembleDebug
+    artifacts:
+      - app/build/outputs/apk/debug/*.apk
